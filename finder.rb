@@ -22,7 +22,6 @@ module OkCuGit
     end
 
     def found_contributors
-      #author = find_contributors
       find_contributors.map {|name|name.slice(8..-1)}.flatten
     end
 
