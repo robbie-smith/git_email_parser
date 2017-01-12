@@ -1,16 +1,12 @@
-require 'pry'
-require 'fileutils'
 module OkCuGit
   class Finder
 
-    attr_reader :repo_name,
-      :user_name,
-      :log
+    attr_reader :repo_name, :user_name, :log
 
     def initialize(repo_name)
       split_name = repo_name.split("/")
       @git = "https://github.com/#{repo_name}"
-      @user_name = split_name[0]
+      @user_name = split_name.first
       @repo_name = split_name.last
       @log = log
     end
@@ -20,8 +16,6 @@ module OkCuGit
       author = log.find_all {|element| element.include?("Author")}
       contributors = author.map {|name|name.slice(8..-1)}.flatten
       contributors.sort.each{|name| puts "#{name}"}
-      #`cd ..`
-      #`rm -rf #{user_name}`
       cd_up_and_remove_directory
     end
 
