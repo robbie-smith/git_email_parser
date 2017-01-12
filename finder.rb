@@ -13,10 +13,17 @@ module OkCuGit
 
     def all_contributors
       collect_logs
-      author = log.find_all {|element| element.include?("Author")}
-      contributors = author.map {|name|name.slice(8..-1)}.flatten
-      contributors.sort.each{|name| puts "#{name}"}
+      found_contributors.sort.each { |name| puts "#{name}" }
       cd_up_and_remove_directory
+    end
+
+    def find_contributors
+      log.find_all {|element| element.include?("Author")}
+    end
+
+    def found_contributors
+      #author = find_contributors
+      find_contributors.map {|name|name.slice(8..-1)}.flatten
     end
 
     def collect_logs
