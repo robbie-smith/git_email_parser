@@ -11,5 +11,6 @@ In your terminal run the following:
 (without the .git on the end)
 
 Example : 
+
 `$ ruby script.rb Robbie-Smith/kickstarter_clone`
 
