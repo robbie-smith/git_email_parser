@@ -1,13 +1,13 @@
 module OkCuGit
   class Finder
 
-    attr_reader :repo_name, :user_name, :log
+    attr_reader :repo_name, :user_name, :log, :git
 
-    def initialize(repo_name)
-      split_name = repo_name.split("/")
-      @git = "https://github.com/#{repo_name}"
-      @user_name = split_name.first
-      @repo_name = split_name.last
+    def initialize(repo_address)
+      split_name = repo_address.split("/")
+      @user_name = split_name[-2]
+      @repo_name = split_name[-1]
+      @git = repo_address
       @log = log
     end
 
@@ -26,7 +26,7 @@ module OkCuGit
     end
 
     def collect_logs
-      `git clone #{@git}`
+      `git clone #{git}`
       Dir.chdir("#{repo_name}")
       @log = `git log`.split("\n").uniq
     end
