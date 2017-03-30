@@ -7,10 +7,4 @@ In your terminal run the following:
 
 ` $ cd git_email_parser`
 
-` $ ruby script.rb username/repo `
-(without the .git on the end)
-
-Example : 
-
-`$ ruby script.rb Robbie-Smith/kickstarter_clone`
-
+`$ ruby script.rb  https://github.com/<USER-NAME>/<REPO-NAME>`
