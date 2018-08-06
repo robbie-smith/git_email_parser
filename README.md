@@ -1,5 +1,5 @@
 #### Git Email Parser
-This is a Ruby script that will find all the contributors to a git repository. And display the contributors name and email address sorted alphabetically. It will then rm -rf the cloned repo after you run the script.
+This is a Ruby script that will find all the contributors to a git repository. And display the contributors name and email address sorted alphabetically. It will then `rm -rf` the cloned repo after you run the script.
 
 In your terminal run the following:
 
